@@ -1,0 +1,49 @@
+from django.shortcuts import render
+from .models import (
+    Pessoa, 
+    Veiculo, 
+    MovRotativo,
+    Mensalista, 
+    MovMensalista
+)
+
+from .form import PessoaForm
+
+
+def home(request):
+    context = {'mensagem': 'Ola mundo'}
+    return render(request, 'core/index.html', context)
+
+
+def lista_pessoas(request):
+    pessoas = Pessoa.objects.all
+    form = PessoaForm()
+    data = {'pessoas': pessoas, 'form': form}
+    return render(request, 'core/lista_pessoas.html', data)
+
+
+def lista_veiculos(request):
+    veiculos = Veiculo.objects.all
+    return render(request, 'core/lista_veiculos.html', {'veiculos': veiculos})
+
+
+def lista_movrotativos(request):
+    mov_rot = MovRotativo.objects.all
+    return render(
+        request, 'core/lista_mov_rot.html', {'mov_rot': mov_rot})
+
+
+def lista_mensalista(request):
+    mensalistas = Mensalista.objects.all
+    return render(
+        request, 'core/lista_mensalistas.html', {'mensalistas': mensalistas})
+
+
+def lista_mov_mensalistas(request):
+    mov_mensalistas = MovMensalista.objects.all
+    return render(
+        request, 
+        'core/lista_mov_mensalistas.html', 
+        {'mov_mensalistas': mov_mensalistas}
+)
+        
