@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import (
     Pessoa, 
     Veiculo, 
@@ -20,6 +20,12 @@ def lista_pessoas(request):
     form = PessoaForm()
     data = {'pessoas': pessoas, 'form': form}
     return render(request, 'core/lista_pessoas.html', data)
+
+def pessoa_novo(request):
+        form = PessoaForm(request.POST or None)
+        if form.is_valid():
+                form.save()
+        return redirect('core_lista_pessoa')
 
 
 def lista_veiculos(request):
