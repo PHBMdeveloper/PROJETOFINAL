@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import (
     Pessoa, 
     Veiculo, 
@@ -7,7 +7,7 @@ from .models import (
     MovMensalista
 )
 
-from .form import PessoaForm
+from .form import PessoaForm, VeiculoForm
 
 
 def home(request):
@@ -22,9 +22,24 @@ def lista_pessoas(request):
     return render(request, 'core/lista_pessoas.html', data)
 
 
+def pessoa_novo(request):
+        form = PessoaForm(request.POST or None)
+        if form.is_valid():
+                form.save()
+        return redirect('core_lista_pessoa')
+
 def lista_veiculos(request):
-    veiculos = Veiculo.objects.all
-    return render(request, 'core/lista_veiculos.html', {'veiculos': veiculos})
+        form = VeiculoForm()
+        veiculos = Veiculo.objects.all
+        data = {'veiculos': veiculos, 'form': form}
+        return render(request, 'core/lista_veiculos.html', data)
+
+
+def veiculo_novo(request):
+        form = VeiculoForm(request.POST or None)
+        if form.is_valid():
+                form.save()
+        return redirect('core_lista_veiculo')
 
 
 def lista_movrotativos(request):

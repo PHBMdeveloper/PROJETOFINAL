@@ -1,4 +1,4 @@
-<h2>Lista de Pessoas</h2>
+<h1>Lista de Pessoas</h1>
 
 
 <ul>
@@ -10,4 +10,15 @@
 
 {% endfor %}
 </ul>
+
+
+<form action="{% url 'core_pessoa_novo' %}" method="POST">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+
+
+    <button type="submit">Cadastrar</button>
+
+</form>
 
