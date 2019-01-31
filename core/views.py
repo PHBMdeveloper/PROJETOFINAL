@@ -7,7 +7,7 @@ from .models import (
     MovMensalista
 )
 
-from .form import PessoaForm, VeiculoForm
+from .form import PessoaForm, VeiculoForm, MovRotativoForm
 
 
 def home(request):
@@ -41,11 +41,18 @@ def veiculo_novo(request):
                 form.save()
         return redirect('core_lista_veiculo')
 
-
 def lista_movrotativos(request):
     mov_rot = MovRotativo.objects.all
-    return render(
-        request, 'core/lista_mov_rot.html', {'mov_rot': mov_rot})
+    form = MovRotativoForm()
+    data = {'mov_rot': mov_rot, 'form': form}
+    return render(request, 'core/lista_mov_rot.html', data)
+
+
+def movrotativos_novo(request):
+        form = MovRotativoForm(request.POST or None)
+        if form.is_valid():
+                form.save()
+        return redirect('core_lista_movrotativos')
 
 
 def lista_mensalista(request):

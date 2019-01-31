@@ -1,4 +1,4 @@
-<h2>lista Movimento Rotativos</h2>
+<h2>Lista Movimento Rotativos</h2>
 
 
 <ul>
@@ -9,4 +9,15 @@
 
 {% endfor %}
 </ul>
+
+
+<form action="{% url 'core_movrotativos_novo' %}" method="POST">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+
+
+    <button type="submit">Cadastrar</button>
+
+</form>
 
