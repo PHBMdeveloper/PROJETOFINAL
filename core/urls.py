@@ -12,7 +12,8 @@ from .views import (
     mensalista_novo,
     movmensalista_novo,
     pessoa_update,
-    veiculo_update
+    veiculo_update,
+    movrotativos_update
 )
 
 urlpatterns = [
@@ -30,6 +31,9 @@ urlpatterns = [
     
     path('mov-rot/', lista_movrotativos, name='core_lista_movrotativos'),
     path('mov-rot-novo/', movrotativos_novo, name='core_movrotativos_novo'),
+    re_path('mov-rot-update(?P<id>\d+)/$', movrotativos_update,
+         name='core_movrotativos_update'),
+
     
     path('mensalistas/', lista_mensalista, name='core_lista_mensalista'),
     path('mensalista-novo/', mensalista_novo, name='core_mensalista_novo'),
