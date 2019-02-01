@@ -1,6 +1,5 @@
 <h2>lista veiculos</h2>
 
-
 <ul>
 {% for veiculo in veiculos %}
     <li>
@@ -11,15 +10,7 @@
 
 <form action="{% url 'core_veiculo_novo'%}" method="POST" >
     {% csrf_token %}
-
     {{ form.as_p }}
-
-
 <button type="submit">Cadastrar</button>
-
-
-
-
-
 </form>
 
