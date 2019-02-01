@@ -1,9 +1,9 @@
 from django.urls import path, include, re_path
 from .views import (
-    home, 
-    lista_pessoas, 
-    lista_veiculos, 
-    lista_movrotativos, 
+    home,
+    lista_pessoas,
+    lista_veiculos,
+    lista_movrotativos,
     lista_mensalista,
     lista_mov_mensalistas,
     pessoa_novo,
@@ -13,7 +13,8 @@ from .views import (
     movmensalista_novo,
     pessoa_update,
     veiculo_update,
-    movrotativos_update
+    movrotativos_update,
+    mensalista_update
 )
 
 urlpatterns = [
@@ -21,23 +22,27 @@ urlpatterns = [
 
     path('pessoas/', lista_pessoas, name='core_lista_pessoa'),
     path('pessoa-novo/', pessoa_novo, name='core_pessoa_novo'),
-    re_path('pessoa-update(?P<id>\d+)/$', pessoa_update, name='core_pessoa_update'),
+    re_path('pessoa-update(?P<id>\d+)/$',
+            pessoa_update, name='core_pessoa_update'),
 
-    
     path('veiculos/', lista_veiculos, name='core_lista_veiculo'),
     path('veiculo-novo/', veiculo_novo, name='core_veiculo_novo'),
-    re_path('veiculo-update(?P<id>\d+)/$', veiculo_update, name='core_veiculo_update'),
+    re_path('veiculo-update(?P<id>\d+)/$',
+            veiculo_update, name='core_veiculo_update'),
 
-    
     path('mov-rot/', lista_movrotativos, name='core_lista_movrotativos'),
     path('mov-rot-novo/', movrotativos_novo, name='core_movrotativos_novo'),
-    re_path('mov-rot-update(?P<id>\d+)/$', movrotativos_update,
-         name='core_movrotativos_update'),
+    re_path('mov-rot-update(?P<id>\d+)/$',
+            movrotativos_update, name='core_movrotativos_update'),
 
-    
     path('mensalistas/', lista_mensalista, name='core_lista_mensalista'),
     path('mensalista-novo/', mensalista_novo, name='core_mensalista_novo'),
-    
-    path('mov-mensalistas/', lista_mov_mensalistas, name='core_lista_mov_mensalistas'),
-    path('mov-mensalista-novo/', movmensalista_novo, name='core_movmensalista_novo'),
+    re_path('mensalista-update(?P<id>\d+)/$',
+            mensalista_update, name='core_mensalista_update'),
+
+    path('mov-mensalistas/', lista_mov_mensalistas,
+         name='core_lista_mov_mensalistas'),
+
+    path('mov-mensalista-novo/', movmensalista_novo,
+         name='core_movmensalista_novo'),
 ]
