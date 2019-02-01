@@ -128,6 +128,17 @@ def movrotativos_update(request, id):
         return render(request, 'core/update_mov_rot.html', data)
 
 
+def movrotativos_delete(request, id):
+    mov_rotativo = MovRotativo.objects.get(id=id)
+    if request.method == 'POST':
+        mov_rotativo.delete()
+        return redirect('core_lista_movrotativos')
+    else:
+        return render(
+            request, 'core/delete_confirm.html', {'obj': mov_rotativo}
+        )
+
+
 def lista_mensalista(request):
     mensalistas = Mensalista.objects.all
     form = MensalistaForm()
