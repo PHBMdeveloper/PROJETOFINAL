@@ -129,7 +129,6 @@ def movrotativos_update(request, id):
 
 
 def movrotativos_delete(request, id):
-<<<<<<< HEAD
     movrotativos = MovRotativo.objects.get(id=id)
     if request.method == 'POST':
         movrotativos.delete()
@@ -137,15 +136,6 @@ def movrotativos_delete(request, id):
     else:
         return render(
             request, 'core/delete_confirm.html', {'obj': movrotativos}
-=======
-    mov_rotativo = MovRotativo.objects.get(id=id)
-    if request.method == 'POST':
-        mov_rotativo.delete()
-        return redirect('core_lista_movrotativos')
-    else:
-        return render(
-            request, 'core/delete_confirm.html', {'obj': mov_rotativo}
->>>>>>> ebe33fb3c3c5c3adaf786d4009c07682acba0ac2
         )
 
 
