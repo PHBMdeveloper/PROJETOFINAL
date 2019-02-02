@@ -1,1 +1,11 @@
 venv
+<<<<<<< HEAD
+=======
+# See the name for you IDE
+.idea
+.vscode
+# If you are using sqlite3
+*.sqlite3
+# Name of your virtuan env
+*pyc
+>>>>>>> HOMEOFFICE
