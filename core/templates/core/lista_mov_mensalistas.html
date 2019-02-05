@@ -1,28 +1,49 @@
-<h2>Lista Movimento de Mensalista</h2>
-
-
-<ul>
-{% for mov_mensalista in mov_mensalistas %}
-
-    <li>
-        <a href="{% url 'core_movmensalista_update' mov_mensalista.id %}">
-            {{ mov_mensalista.mensalista }} - {{ mov_mensalista.dt_pgto }}
-        </a>
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block menu %}
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'core_home' %}">Home</a>
     </li>
-
-
-
-{% endfor %}
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Serviços</a>
+        <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'core_lista_pessoa' %}">Pessoas</a>
+        <a class="dropdown-item" href="{% url 'core_lista_veiculo' %}">Veículos</a>
+        <a class="dropdown-item" href="{% url 'core_lista_movrotativos' %}">Rotativo</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item active" href="{% url 'core_lista_mensalista' %}">Mensalistas</a>
+        </div>
+    </li>
+    {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Ola, {{ user }}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+    {% endif %}
 </ul>
-
-<form action="{% url 'core_movmensalista_novo' %}" method="POST">
-    {% csrf_token %}
-    
-    {{ form.as_p }}
-
-
-    <button type="submit">Cadastrar</button>
-
-</form>
-
-
+{% endblock %}
+{% block main %}
+    <h2>Lista Movimento de Mensalista</h2>
+    <ul>
+    {% for mov_mensalista in mov_mensalistas %}
+        <li>
+            <a href="{% url 'core_movmensalista_update' mov_mensalista.id %}">
+                {{ mov_mensalista.mensalista }} - {{ mov_mensalista.dt_pgto }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+    <form action="{% url 'core_movmensalista_novo' %}" method="POST">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+{% endblock %}
