@@ -10,17 +10,19 @@
         <title>Website - Estacionamento 24 horas</title>
     </head>
     <body>
-    <div class="container">
-        <div class="row row-space">
-            <div class="col-6">
+    <div class="container center-page">
+        <div class="row">
+            <div class="col-10">
                 <h1>Estacionamento 24 horas</h1>
                 <span>Slogan da sua empresa aqui</span>
             </div>
-            <div class="col-6">
-                <img class="img-fluid" src="{% static 'img/logo.png' %} " alt="Estacionamento 24 horas">
+            <div class="col-2">
+                <img class="img-fluid" src="{% static 'img/logo.png' %} " alt="Estacionamento 24 horas"  width="100%"">
             </div>
         </div>
-        {% include "website/menu.html" %}
+        {% block menu %}
+            {% include "website/menu.html" %}
+        {% endblock  %}
         {% block main %}
         
         {% endblock  %}

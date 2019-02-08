@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends "website/base.html" %}
+{% load static %}
+{% block menu %}
+<div class="row">
+    <div class="col-12">
+        <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'website_servicos'%}">Serviços</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'website_sobre'%}">Sobre</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'website_planos'%}">Planos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'website_contato'%}">Contatos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'core_home'%}">Sistema</a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+{% block main %}
+    <div class="row row-space">
+        <div class="col-12">
+            Mussum Ipsum, cacilds vidis litro abertis. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Suco de cevadiss deixa as pessoas mais interessantis. In elementis mé pra quem é amistosis quis leo. Detraxit consequat et quo num tendi nada.
+
+            Per aumento de cachacis, eu reclamis. Interagi no mé, cursus quis, vehicula ac nisi. Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.
+                
+            Cevadis im ampola pa arma uma pindureta. Diuretics paradis num copo é motivis de denguis. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis. Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis.
+                
+        </div>
+    </div>
+    <div class="row row-space">
+        <div class="col-8">
+            Mussum Ipsum, cacilds vidis litro abertis. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Suco de cevadiss deixa as pessoas mais interessantis. In elementis mé pra quem é amistosis quis leo. Detraxit consequat et quo num tendi nada.
+
+            Per aumento de cachacis, eu reclamis. Interagi no mé, cursus quis, vehicula ac nisi. Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.
+        </div>
+        <div class="col-4">
+            <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="Minha imagem">
+        </div>
+
+    </div>
+{% endblock %} 

@@ -1,8 +1,33 @@
 <!DOCTYPE html>
 {% extends "website/base.html" %}
 {% load static %}
+{% block menu %}
+<div class="row">
+    <div class="col-12">
+        <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+                <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'website_servicos'%}">Serviços</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'website_sobre'%}">Sobre</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'website_planos'%}">Planos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'website_contato'%}">Contatos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'core_home'%}">Sistema</a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
 {% block main %}
-<div class="container">
     <div class="row row-space">
         <div class="col-6">
                 Mussum Ipsum, cacilds vidis litro abertis. Aenean aliquam molestie leo, vitae iaculis nisl. Quem num gosta di mim que vai caçá sua turmis! Manduma pindureta quium dia nois paga. Paisis, filhis, espiritis santis.
@@ -45,5 +70,4 @@
             Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Quem num gosta di mim que vai caçá sua turmis! Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi. Casamentiss faiz malandris se pirulitá.
         </div>
     </div>
-</div>
 {% endblock %}
