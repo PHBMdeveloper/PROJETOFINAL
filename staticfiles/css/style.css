@@ -1,0 +1,14 @@
+html {
+    overflow-y: scroll;
+}
+
+.footer-website {
+    bottom: 0;
+    position: absolute;
+
+}
+
+.row-space {
+    margin-top: 25px;
+}
+
