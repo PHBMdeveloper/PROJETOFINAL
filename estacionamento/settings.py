@@ -8,7 +8,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'phdevevolper.com.br']
+ALLOWED_HOSTS = ['127.0.0.1', 'phdeveloper.com.br']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
